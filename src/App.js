@@ -1,21 +1,31 @@
 import './App.css';
 import Header from "./Header";
 import Sidebar from "./Sidebar";
+import Chat from "./Chat";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 function App() {
   return (
     // BEM naming convention
     <div className="app">
-      <h1>Hello Bitcoin</h1>
+      <Router>
+        <Header />
+        <div className="app__body">
+          <Sidebar />
 
-      {/* Header */}
-      <Header />
+          <Switch>
+            <Route path="/room/:roomId">
+              {/*<h1>CHAT SCREEN</h1>*/}
+              <Chat />
+            </Route>
+            <Route path="/">
+              <h1>Welcome</h1>
+            </Route>
+          </Switch>
 
-      <div className="app__body">
-        {/* Sidebar */}
-        <Sidebar />
-        {/* React-Router -> Chat Screen */}
-      </div>
+          {/* React-Router -> Chat Screen */}
+        </div>
+      </Router>
     </div>
   );
 }
