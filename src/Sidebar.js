@@ -14,9 +14,11 @@ import ExpandLessIcon from '@material-ui/icons/ExpandLess';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import AddIcon from '@material-ui/icons/Add';
 import db from "./firebase";
+import { useStateValue } from './StateProvider';
 
 function Sidebar() {
     const [channels, setChannels] = useState([]);
+    const [{ user }] = useStateValue();
 
     useEffect(() => {
         db.collection("rooms").onSnapshot((snapshot) => (
@@ -36,7 +38,7 @@ function Sidebar() {
                     <h2>Crypto Slack</h2>
                     <h3>
                         <FiberManualRecordIcon />
-                        Crypto Jiri
+                        {user?.displayName}
                     </h3>
                 </div>
                 <CreateIcon />
@@ -57,7 +59,7 @@ function Sidebar() {
             {/* Connect to db and list all the channels */}
             {/* <SidebarOption ... /> */}
             {channels.map((channel) => (
-                <SidebarOption title={channel.name} id={channel} />
+                <SidebarOption title={channel.name} id={channel.id} />
             ))}
         </div>
     )
