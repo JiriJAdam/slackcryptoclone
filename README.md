@@ -1,1 +1,4 @@
 In my Crypto Slack clone, that I have created was not easy or hard but challanging! I wanted to implent my own colors and style but then I thought why not use the same colors and style to make it harder for myself to see how close can I get it to a slack look a like. I used Firebase and ReactJS to create this slack clone with material -ui to keep it looking nice and beautiful. For the authentication I used Google's auth that was provided with Firebase which was interesting in the very least! Very proud to come close to this project with only few months of coding! I've used the FireBase Config and the deploy to make it simple and clean rather then trying to make it complixed with my twitter clone that I have created as well. Also used reducer's for the user's data to be keeped and logged in, so that other user's can see who is typing and adding channels. 
+-Firebase
+-Redux
+-Reducer 
